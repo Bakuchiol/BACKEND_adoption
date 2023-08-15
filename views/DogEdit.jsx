@@ -8,9 +8,9 @@ function DogEdit(props) {
     <div>
       <form action={`/dogs/${dog._id}?_method=PUT`} method="POST">
           Name: <input type="text" name="name" defaultValue={dog.name}/><br/>
-          Age: <input type="text" name="age"  defaultValue={dog.age}/><br/>
+          Age: <input type='number' name="age"  defaultValue={dog.age}/><br/>
           Breed: <input type='text' name='breed' defaultValue={dog.breed}/><br/>
-          Had First Checkup:
+          Good Dog:
               { dog.isGood? <input type="checkbox" name="isGood" defaultChecked />: <input type="checkbox" name="isGood"/> }
           <br/>
           Description:

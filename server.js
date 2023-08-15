@@ -8,8 +8,12 @@ const mongoose = require('mongoose');
 require('dotenv').config()
 
 // import cats & dogs
-const Cat = require('./models/cat')
-const Dog = require('./models/dog')
+const Cat = require('./utilities/cat')
+const Dog = require('./utilities/dog')
+
+const cats = require('./models/cats')
+const dogs = require('./models/dogs')
+const adoptAll = require('./models/adoption')
 
 // *********************************** MIDDLEWARE
 app.set("view engine", "jsx");
@@ -31,6 +35,9 @@ app.use((req, res, next) => {
 // delete
 app.use(methodOverride('_method'));
 
+// experiment css
+app.use(express.static(__dirname + '/public'))
+
 // ------------------------------------------- MONGOOSE
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', ()=> {
@@ -40,7 +47,7 @@ mongoose.connection.once('open', ()=> {
 
 // main page
 app.get("/", (req,res) => {
-    res.render('Welcome')
+    res.render('Welcome', {adoptAll: adoptAll})
 })
 
 // cat & dog INDEX
@@ -54,7 +61,7 @@ app.get('/cats', (req, res) => {
 });
 
 app.get('/dogs', (req,res) => {
-    Dog.find({}).then((AllDogs) => {
+    Dog.find({}),((AllDogs) => {
         res.render("DogIndex",
         {
             dogs : AllDogs
