@@ -5,7 +5,7 @@ const dogSchema = new mongoose.Schema({
     age: { type: String, required: true },
     description: { type: String, required: true },
     breed:  { type: String, required: true },
-    forAdoption: Boolean
+    isGood: Boolean
 });
 
 const Dog = mongoose.model('Dog', dogSchema);

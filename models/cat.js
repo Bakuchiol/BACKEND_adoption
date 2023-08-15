@@ -5,9 +5,8 @@ const catSchema = new mongoose.Schema({
     age:  { type: String, required: true },
     description: { type: String, required: true },
     hadFirstCheckUp: Boolean,
-    forAdoption: Boolean
 });
 
-const Cat = mongoose.model('Cat', dogSchema);
+const Cat = mongoose.model('Cat', catSchema);
 
 module.exports = Cat;
