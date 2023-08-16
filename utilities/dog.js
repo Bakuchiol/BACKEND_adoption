@@ -5,6 +5,7 @@ const dogSchema = new mongoose.Schema({
     age: { type: Number, required: true },
     description: { type: String, required: true },
     breed:  { type: String, required: true },
+    // img: { type: String, required:true },
     isGood: Boolean
 });
 

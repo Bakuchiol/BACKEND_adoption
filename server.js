@@ -36,7 +36,8 @@ app.use((req, res, next) => {
 app.use(methodOverride('_method'));
 
 // experiment css
-app.use(express.static(__dirname + '/public'))
+// app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 
 // ------------------------------------------- MONGOOSE
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -51,24 +52,33 @@ app.get("/", (req,res) => {
 })
 
 // cat & dog INDEX
-app.get('/cats', (req, res) => {
-    // we have a model, find all instance of the model
-    Cat.find({}).then((AllCats) => {
-        res.render("CatIndex", {
-            cats : AllCats
-        });
-    });
+app.get('/cats', async(req, res) => {
+    const AllCats = await Cat.find({});
+    res.render("CatIndex", {
+        cats : AllCats
+    })
 });
 
-app.get('/dogs', (req,res) => {
-    Dog.find({}),((AllDogs) => {
-        res.render("DogIndex",
-        {
-            dogs : AllDogs
-        })
+app.get('/dogs', async(req,res) => {
+    const AllDogs = await Dog.find({});
+    res.render("DogIndex",{
+        dogs : AllDogs
     })
 })
 
+// seed route
+// app.get('/cats/seed', async(req,res) => {
+//     await Cat.deleteMany({});
+//     await Cat.create(catData);
+
+//     res.redirect('/cats')
+// })
+// app.get('dogs/seed', async(req,res) => {
+//     await Dog.deleteMany({});
+//     await Dog.create(dogData);
+
+//     res.redirect('/dogs')
+// })
 // cat & dog POST
 app.post('/cats', async (req, res)=>{
     if(req.body.hadFirstCheckUp === 'on'){ //if checked, req.body.hadFirstCheckUp is set to 'on'
@@ -133,7 +143,7 @@ app.put('/dogs/:id', async(req, res)=>{
     } else {
         req.body.isGood = false;
     }
-    const updatedDog = await Dog.findByIdAndUpdate(req.params.id, req.body)
+    await Dog.findByIdAndUpdate(req.params.id, req.body)
         res.redirect(`/dogs/${req.params.id}`);
     });
 

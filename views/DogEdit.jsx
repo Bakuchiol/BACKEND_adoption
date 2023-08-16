@@ -15,6 +15,7 @@ function DogEdit(props) {
           <br/>
           Description:
           <input type='text' name='description' defaultValue={dog.description}/><br />
+          {/* Image: <input type="text" name='image' defaultValue={dog.img}/><br/> */}
           
           <input type="submit" value="Submit Changes"/>
       </form>

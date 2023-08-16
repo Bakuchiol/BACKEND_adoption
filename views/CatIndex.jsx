@@ -1,11 +1,13 @@
 import React from 'react'
+import Default from './layout/Default';
 
 function CatIndex(props) {
 
     const cats = props.cats
 
   return (
-    <div>
+    <Default>
+    <div id='catDiv'>
       <nav>
         <a href="/cats/new">Enter New Cat</a>
       </nav>
@@ -31,6 +33,7 @@ function CatIndex(props) {
         );
       })}
     </div>
+    </Default>
   )
 }
 

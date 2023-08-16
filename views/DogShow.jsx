@@ -6,6 +6,7 @@ function DogShow(props) {
 
   return (
     <div>
+      {/* <img src={dog.img} alt="dog" /> */}
       <h1>{dog.name}</h1>
       <h4>{dog.age}</h4>
       <h4>{dog.breed}</h4>
