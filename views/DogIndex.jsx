@@ -8,33 +8,37 @@ function DogIndex(props) {
   return (
     <Default>
       <div id='dogWrapper'>
-        <div className="newPet">
-          <a href="/dogs/new" className='newPaw'>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Dog_Paw_Print.png" alt="" className='pawPrint'/>
-            <p>Enter New Dog</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Dog_Paw_Print.png" alt="" className='pawPrint'/>
-            </a>
-        </div>
+        <nav id="petNav">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Dog_Paw_Print.png" alt="" className='pawPrint'/>
+          <a href="/dogs/new">Enter New Dog</a>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Dog_Paw_Print.png" alt="" className='pawPrint'/>
+        </nav>
 
-          <div className="dogBox">
+          <div className="petBox">
         {dogs.map((dog,i)=>{
           return (
-              <div key={i} className='eachPet'>
+              <div key={i} className='dogCard'>
               <a href={`/dogs/${dog._id}`}>
                 {/* <img src={dog.img} alt="" /> */}
-                <h2>{dog.name}</h2>
+                <h1>{dog.name}</h1>
               </a>
 
+
+              <div className="editDelete">
               {/* edit */}
-              <a href={`/dogs/${dog._id}/edit`}>Edit</a>
+              <a href={`/dogs/${dog._id}/edit`}>
+                <button className='button'>
+                  Edit
+                </button>
+                </a>
               {/* edit */}
 
             {/* delete */}
             <form action={`/dogs/${dog._id}?_method=DELETE`} method="POST">
-              <input type="submit" value="DELETE"/>
+              <input type="submit" value="Delete" className='button'/>
             </form>
             {/* delete */}
-
+            </div>
           </div>
           );
         })}

@@ -83,11 +83,114 @@ a:hover {
 #catDiv {
     margin-top: 150px;
 }
-
+.petBox {
+    /* border: .5px solid blue; */
+    /* height: 100vh; */
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#petNav {
+    /* border: .5px solid red; */
+    text-align: left;
+    padding-left: 40px;
+}
+#petNav a {
+    margin: 0 10px;
+}
+.catCard {
+    border: .5px solid green;
+    background-image: url('https://img.freepik.com/free-vector/cats-doodle-pattern-background_53876-100663.jpg?w=360');
+    background-repeat: no-repeat;
+    background-size: center;
+    width: 360px;
+    height: 200px;
+    margin: 5px 15px;
+    padding: 30px;
+}
+.catCard h1 {
+    font: 40px 'Segoe UI' bolder;
+    margin: 10px 0;
+}
+.editDelete {
+    /* border: .5px solid orange; */
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    margin-top: 50px;
+}
+.button {
+    width: 80px;
+    height: 25px;
+    font-size: 14px;
+    border: .5px solid #2f2d2de3;
+    border-radius: 20px;
+    background-color: #313030e6;
+    color: #f5f5f5ca;
+}
+.button:hover {
+    background-color: #f98826ea;
+    color: #000;
+}
+.submit {
+    margin-top: 10px;
+    height: 30px;
+    width: 150px;
+}
+.new {
+    width: 100%;
+}
 /* dog */
 #dogWrapper {
     margin-top: 150px;
 }
-.dogBox {
-    border: solid blue;
+.dogCard {
+    border: .5px solid #ff363c;
+    background-color: #fff;
+    background-image: url('https://img.freepik.com/free-vector/animal-background-vector-with-cute-pets-illustration_53876-127698.jpg');
+    background-repeat: no-repeat;
+    background-size: 365px 230px;
+    background-position: 0 100%;
+    width: 360px;
+    height: 200px;
+    margin: 5px 15px;
+    padding: 30px;
+}
+/* ****************************************** EDIT PAGE */
+#editFormWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+.editForm {
+    border: .5px solid #dc143cd2;
+    padding: 15px;
+}
+.mainForm{
+    /* border: solid green; */
+    text-align: left;
+    margin: 0 20px 10px 20px;
+}
+.mainForm > * {
+    margin-block-start: 10px;
+}
+.input {
+    height: 30px;
+    width: 250px;
+    font-size: 18px;
+    padding: 8px 0 3px 1px;
+}
+
+/* *********************************************** SHOW PET */
+#showWrapper{
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+#showWrapper h1 {
+    font: 40px 'Segoe UI' bolder;
+}
+.showBoxInfo {
+    margin: 15px 0;
 }
