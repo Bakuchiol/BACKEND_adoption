@@ -8,12 +8,12 @@ const mongoose = require('mongoose');
 require('dotenv').config()
 
 // import cats & dogs
-const Cat = require('./utilities/cat')
-const Dog = require('./utilities/dog')
+const Cat = require('./models/cat')
+const Dog = require('./models/dog')
 
-const cats = require('./models/cats')
-const dogs = require('./models/dogs')
-const adoptAll = require('./models/adoption')
+const cats = require('./utilities/cats')
+const dogs = require('./utilities/dogs')
+const adoptAll = require('./utilities/adoption')
 
 // *********************************** MIDDLEWARE
 app.set("view engine", "jsx");
